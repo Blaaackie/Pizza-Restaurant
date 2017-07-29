@@ -42,11 +42,11 @@
 }
 
 +(PizzaSize) pizzaSizeFromString:(NSString*)string {
-    if ([string localizedStandardCompare: @"small"]) {
+    if ([string isEqualToString: @"small"]) {
         return small;
-    }else if ([string localizedStandardCompare: @"medium"]){
+    }else if ([string isEqualToString: @"medium"]){
         return medium;
-    }else if ([string localizedStandardCompare: @"large"]){
+    }else if ([string isEqualToString: @"large"]){
         return large;
     } else {
         return small;

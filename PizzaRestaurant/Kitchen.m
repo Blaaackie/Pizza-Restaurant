@@ -13,9 +13,28 @@
 
 -(Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSSet *)toppings
 {
-    Pizza *pizza = [[Pizza alloc] initWithSize: size pizzaToppings: toppings];
     
-    return pizza;
+    if ([self.delegate kitchenShouldUpgradeOrder:self])
+    {
+        size = large;
+    };
+    
+    if([self.delegate kitchen:self shouldMakePizzaOfSize:size andToppings:toppings])
+    {
+        Pizza *pizza = [[Pizza alloc] initWithSize: size pizzaToppings: toppings];
+        
+        if( [self.delegate respondsToSelector:@selector(kitchenDidMakePizza:)] ) {
+            // invoke the inherited method
+            [self.delegate kitchenDidMakePizza:pizza];
+
+        }
+        
+        
+        return pizza;
+    }
+    
+
+    return nil;
 }
 
 @end
