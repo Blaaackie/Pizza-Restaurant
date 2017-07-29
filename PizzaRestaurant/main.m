@@ -17,7 +17,6 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
         
-        NSLog(@"Please pick your pizza size and toppings:\nFirst type the size of pizza you would like\nThen type all the toppings you would like seperated by a space\nThank You!");
     
         Kitchen *restaurantKitchen = [Kitchen new];
         NiceManager *niceManager = [NiceManager new];
@@ -43,6 +42,8 @@ int main(int argc, const char * argv[])
             } else {
                 restaurantKitchen.delegate = nil;
             }
+            
+            NSLog(@"Please pick your pizza size and toppings:\nFirst type the size of pizza you would like\nThen type all the toppings you would like seperated by a space\nThank You!");
 
                 
             
